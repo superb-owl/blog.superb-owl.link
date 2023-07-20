@@ -27,11 +27,9 @@ async function getPosts() {
     page++;
     for (let i = 0; i < resp.stories.length; ++i) {
       const story = resp.stories[i];
-      try {
-        await fillDetails(story);
-      } catch (e) {
-        console.log('error filling details for', story.story_permalink);
-        console.log(e);
+      const valid = await fillDetails(story);
+      if (!valid) {
+        console.log('story was removed or not found', story.story_permalink);
         continue;
       }
       posts.push(story);
@@ -42,7 +40,11 @@ async function getPosts() {
 }
 
 async function fillDetails(post) {
+  console.log(post.story_permalink);
   const resp = await fetch(post.story_permalink);
+  if (resp.status === 404) {
+    return false
+  }
   const html = await resp.text();
   const $ = cheerio.load(html);
 
@@ -54,6 +56,7 @@ async function fillDetails(post) {
 
   const descMeta = $('h3.subtitle');
   post.description = descMeta.text();
+  return true;
 }
 
 function renderHome(posts) {
