@@ -112,7 +112,8 @@ function renderPost(post) {
   })
   const postID = post.story_permalink
     .replace(/^.*\/p\/([\w-]+).*$/, '$1');
-  fs.writeFileSync(POST_DIR + '/' + postID, $.html())
+  fs.mkdirSync(POST_DIR + '/' + postID);
+  fs.writeFileSync(POST_DIR + '/' + postID + '/index.html', $.html())
 }
 
 function fixContent(html) {
