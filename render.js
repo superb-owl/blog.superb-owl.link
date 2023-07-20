@@ -34,8 +34,8 @@ async function getPosts() {
         console.log(e);
         continue;
       }
+      posts.push(story);
     }
-    posts = posts.concat(resp.stories);
     console.log(posts.length);
   }
   return posts;
