@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "name": "superb-owl",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "build": "node render.js",
+    "serve:dev": "http-server -c-1 -p 3000 -e html ./dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
