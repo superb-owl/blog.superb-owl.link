@@ -4,6 +4,19 @@ const index = fs.readFileSync('./index.html').toString();
 
 export function renderHome(posts) {
   const $ = cheerio.load(index);
+  $("head").append(`
+        <meta name="author" content="Max Goodbird">
+        <meta property="og:url" content="https://blog.superb-owl.link/" />
+        <meta name="theme-color" content="#14101b">
+        <meta property="og:image" content="https://blog.superb-owl.link/logo.png">
+        <meta name="twitter:image" content="https://blog.superb-owl.link/logo.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Superb Owl">
+        <meta name="twitter:title" content="Superb Owl">
+        <meta name="description" content="Exploring the gaps between Science and Spirituality.">
+        <meta property="og:description" content="Exploring the gaps between Science and Spirituality.">
+        <meta name="twitter:description" content="Exploring the gaps between Science and Spirituality.">
+  `);
   posts.forEach(post => {
     const date = new Date(Date.parse(post.story_date));
     $("#posts").append(`
