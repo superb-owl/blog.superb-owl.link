@@ -38,6 +38,21 @@ export async function fillDetails(post) {
 
   const descMeta = $('h3.subtitle');
   post.description = descMeta.text();
+
+  const comments = $('.comments-section-title').text();
+  try {
+    post.comments = parseInt(comments.replace(" Comments", ''));
+  } catch (e) {
+    console.log("couldn't find comments", post.story_permalink, e);
+  }
+
+  const likes = $('.like-button-container .label').first().text();
+  try {
+    post.likes = parseInt(likes)
+  } catch (e) {
+    console.log("couldn't find comments", post.story_permalink, e);
+  }
+
   return true;
 }
 

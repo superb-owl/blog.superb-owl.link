@@ -5,6 +5,12 @@ const index = fs.readFileSync('./index.html').toString();
 export function renderPost(post) {
   const $ = cheerio.load(index);
   $('body').addClass('post-view');
+  let commentsMsg = "Join the discussion on Substack!";
+  if (post.comments > 1) {
+    commentsMsg = post.comments + " comments on Substack. Join the discussion!";
+  } else if (post.comments) {
+    commentsMsg = "1 comment on Substack. Join the discussion!";
+  }
   $("#post").append(`
     <hr>
     <h1 class="title">${post.story_title}</h1>
@@ -12,6 +18,10 @@ export function renderPost(post) {
     <a class="substack-link" href="${post.story_permalink}">View on Substack</a>
     <hr>
     ${fixContent(post.story_content)}
+    <hr>
+    <a href="${post.story_permalink}/comments">
+      ${commentsMsg}
+    </a>
   `);
   $('a[href="https://superbowl.substack.com/subscribe"]').replaceWith(`
   <iframe src="https://superbowl.substack.com/embed" width="480" height="75" frameborder="0" scrolling="no"></iframe>
