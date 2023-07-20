@@ -8,7 +8,7 @@
   "main": "main.js",
   "devDependencies": {},
   "scripts": {
-    "build": "node render.js",
+    "build": "node render/main.js",
     "serve:dev": "http-server -c-1 -p 3000 -e html ./dist"
   },
   "author": "",
