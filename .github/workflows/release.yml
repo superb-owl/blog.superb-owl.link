@@ -3,9 +3,6 @@ name: Deploy static content to Pages
 on:
   push:
     branches: [main]
-  schedule:
-    # Rebuild every 15m
-    - cron:  '0/15 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
