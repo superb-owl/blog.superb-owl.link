@@ -74,6 +74,7 @@ h1.title {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab", sans-serif;
+  margin: 1em 0 0.625em;
 }
 
 h1 { font-size: 2em; }
@@ -161,6 +162,17 @@ blockquote {
   padding-left: 20px;
 }
 
+pre {
+  padding: 16px;
+  margin: 32px 0;
+  background-color: rgb(27, 23, 34);
+  border-radius: 6px;
+}
+pre code {
+  font-size: 16px;
+  line-height: 20px;
+}
+
 a {
   color: rgb(231, 230, 233);
 }
@@ -168,6 +180,8 @@ a {
 .footnote-anchor {
   font-size: 14px;
   vertical-align: super;
+  line-height: 0;
+  margin-left: 4px;
 }
 
 .footnote {
@@ -204,6 +218,7 @@ hr {
 
 .captioned-image-container {
   text-align: center;
+  margin: 32px auto;
 }
 
 .image-link-expand {
