@@ -42,7 +42,7 @@ async function getPosts() {
 }
 
 async function fillDetails(post) {
-  const resp = await fetch(post.story_permalink.replace('https://superbowl.substack.com', 'https://proxy.superb-owl.link'));
+  const resp = await fetch(post.story_permalink);
   const html = await resp.text();
   const $ = cheerio.load(html);
 
