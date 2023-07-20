@@ -220,6 +220,7 @@ figure {
   color: #a19fa4;
 }
 
+video,
 img {
   max-width: 100%;
   height: auto;
@@ -265,3 +266,85 @@ a.button.primary {
   display: none;
 }
 
+.tweet {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  background-color: #fff;
+  max-width: 550px;
+  border-radius: 12px;
+  padding: 16px;
+  color: #111;
+  margin: 32px auto;
+}
+.tweet a {
+  color: #111;
+  text-decoration: none;
+}
+.tweet-link-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  white-space: pre-wrap;
+}
+.tweet-video-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tweet-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.tweet-header-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.tweet-text {
+  font-size: 20px;
+  line-height: 24px;
+}
+.tweet-author-name {
+  font-weight: 600;
+}
+.tweet-header-avatar {
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  margin: 0;
+}
+.tweet-link-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12);
+  text-decoration: none;
+  white-space: pre-wrap;
+}
+.tweet-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.tweet-footer hr {
+  margin: 4px 0;
+}
+.tweet-date {
+  flex: 1;
+}
+.tweet-ufi {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.tweet-ufi .likes
+.tweet-ufi .retweets, {
+  display: flex;
+  gap: 4px;
+}
