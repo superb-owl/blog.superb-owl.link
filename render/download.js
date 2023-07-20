@@ -23,7 +23,7 @@ export async function getPosts() {
 
 export async function fillDetails(post) {
   console.log(post.story_permalink);
-  post.id = p.story_permalink.replace(/^.*\/p\/([\w-]+).*$/, '$1');
+  post.id = post.story_permalink.replace(/^.*\/p\/([\w-]+).*$/, '$1');
   const resp = await fetch(post.story_permalink);
   if (resp.status === 404) {
     return false
