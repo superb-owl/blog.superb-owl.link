@@ -11,6 +11,23 @@ export function renderPost(post) {
   } else if (post.comments) {
     commentsMsg = "1 comment on Substack. Join the discussion!";
   }
+  $("title").text(post.title + " - " + "Superb Owl");
+  $("head").append(`
+        <meta name="author" content="Max Goodbird">
+        <meta property="og:type" content="article">
+        <link rel="alternate" type="application/rss+xml" href="https://superbowl.substack.com/feed" title="Superb Owl"/>
+
+        <link rel="canonical" href="https://blog.superb-owl.link/p/${post.id}" />
+        <meta property="og:url" content="https://blog.superb-owl.link/p/${post.id}" />
+        <meta property="og:title" content="${post.title}">
+        <meta name="twitter:title" content="${post.title}">
+        <meta name="description" content="${post.description}">
+        <meta property="og:description" content="${post.description}">
+        <meta name="twitter:description" content="${post.description}">
+        <meta property="og:image" content="${post.image}">
+        <meta name="twitter:image" content="${post.image}">
+        <meta name="twitter:card" content="summary_large_image">
+  `);
   $("#post").append(`
     <hr>
     <h1 class="title">${post.title}</h1>

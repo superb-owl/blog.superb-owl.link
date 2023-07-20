@@ -23,8 +23,7 @@ STATIC_FILES.forEach(f => {
   home.renderHome(posts);
   fs.writeFileSync(DIST_DIR + '/index.html', home.renderHome(posts))
   posts.forEach(p => {
-    const postID = p.story_permalink.replace(/^.*\/p\/([\w-]+).*$/, '$1');
-    fs.mkdirSync(POST_DIR + '/' + postID);
-    fs.writeFileSync(POST_DIR + '/' + postID + '/index.html', post.renderPost(p))
+    fs.mkdirSync(POST_DIR + '/' + p.id);
+    fs.writeFileSync(POST_DIR + '/' + p.id + '/index.html', post.renderPost(p))
   });
 })();
