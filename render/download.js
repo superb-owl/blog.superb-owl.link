@@ -39,6 +39,10 @@ export async function fillDetails(post) {
   const descMeta = $('h3.subtitle');
   post.description = descMeta.text();
 
+  const titleMeta = $('meta[property="og:title"]');
+  post.current_title = titleMeta.attr('content');
+  post.title = post.current_title || post.story_title;
+
   const comments = $('.comments-section-title').text();
   try {
     post.comments = parseInt(comments.replace(" Comments", ''));

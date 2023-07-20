@@ -9,7 +9,9 @@ export function renderHome(posts) {
     $("#posts").append(`
       <div class="post">
         <h3>
-          <a href="${post.story_permalink.replace('https://superbowl.substack.com', '')}">${post.story_title}</a>
+          <a href="${post.story_permalink.replace('https://superbowl.substack.com', '')}">
+            ${post.title}
+          </a>
         </h3>
         <div class="subheading description">
           ${post.description}

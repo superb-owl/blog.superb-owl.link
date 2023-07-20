@@ -13,7 +13,7 @@ export function renderPost(post) {
   }
   $("#post").append(`
     <hr>
-    <h1 class="title">${post.story_title}</h1>
+    <h1 class="title">${post.title}</h1>
     <h3 class="subtitle">${post.description}</h3>
     <a class="substack-link" href="${post.story_permalink}">View on Substack</a>
     <hr>
