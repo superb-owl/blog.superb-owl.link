@@ -158,10 +158,10 @@ h3 a:hover {
   margin-top: 70px;
 }
 
-h1.title {
-  margin-bottom: 0;
+h1.post-title {
+  margin: 0;
 }
-h3.subtitle {
+h3.post-subtitle {
   color: #a19fa4;
   font-size: 18px;
   font-weight: 200;
@@ -177,6 +177,13 @@ blockquote {
   margin-bottom: 20px;
   margin-top: 20px;
   padding-left: 20px;
+}
+
+.paywall {
+  border: 1px solid #eb02ed;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
 }
 
 pre {
@@ -293,10 +300,6 @@ a.button.primary {
 
 .substack-link {
   font-size: 14px;
-}
-
-.substack-link~hr {
-  margin-top: 16px;
 }
 
 .embedded-post-wrap,

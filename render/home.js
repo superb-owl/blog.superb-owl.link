@@ -22,7 +22,7 @@ export function renderHome(posts) {
     $("#posts").append(`
       <div class="post">
         <h3>
-          <a href="${post.story_permalink.replace('https://superbowl.substack.com', '')}">
+          <a href="${post.link}">
             ${post.title}
           </a>
         </h3>
@@ -33,7 +33,7 @@ export function renderHome(posts) {
           ${date.toDateString()}
         </div>
         <div class="image-holder">
-          <a href="${post.story_permalink}">
+          <a href="${post.link}">
             <img src="${post.image}">
           </a>
         </div>

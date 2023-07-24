@@ -24,6 +24,7 @@ export async function getPosts() {
 export async function fillDetails(post) {
   console.log(post.story_permalink);
   post.id = post.story_permalink.replace(/^.*\/p\/([\w-]+).*$/, '$1');
+  post.link = post.story_permalink.replace('https://superbowl.substack.com', '');
   const resp = await fetch(post.story_permalink);
   if (resp.status === 404) {
     return false
@@ -57,6 +58,8 @@ export async function fillDetails(post) {
   } catch (e) {
     console.log("couldn't find comments", post.story_permalink, e);
   }
+
+  post.paidOnly = !!$('.paywall').length;
 
   return true;
 }

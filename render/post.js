@@ -29,19 +29,23 @@ export function renderPost(post) {
         <meta name="twitter:card" content="summary_large_image">
   `);
   $("#post").append(`
-    <hr>
-    <h1 class="title">${post.title}</h1>
-    <h3 class="subtitle">${post.description}</h3>
+    <hr class="post-title-top">
+    <h1 class="post-title">${post.title}</h1>
+    <h3 class="post-subtitle">${post.description}</h3>
     <a class="substack-link" href="${post.story_permalink}">View on Substack</a>
-    <hr>
-    ${fixContent(post.story_content)}
+    <hr class="post-title-bottom">
+    ${fixContent(post)}
+    ${post.paidOnly
+      ? '<div class="paywall">This post is for paid subscribers. <a href="' + post.story_permalink + '">Visit Substack to finish reading</a>.</div>'
+      : ''
+    }
     <hr>
     <a href="${post.story_permalink}/comments">
       ${commentsMsg}
     </a>
   `);
   $('a[href="https://superbowl.substack.com/subscribe"]').replaceWith(`
-  <iframe src="https://superbowl.substack.com/embed" width="480" height="75" frameborder="0" scrolling="no"></iframe>
+  <iframe src="https://superbowl.substack.com/embed" width="480" height="60" frameborder="0" scrolling="no"></iframe>
   `);
   $("h1").each(function() {
     $(this).attr('id', $(this).text().replaceAll(/\W+/g, '-').toLowerCase())
@@ -60,7 +64,11 @@ export function renderPost(post) {
   return $.html();
 }
 
-function fixContent(html) {
+function fixContent(post) {
+  let html = post.story_content;
+  if (post.paidOnly) {
+    html = html.replace(new RegExp(`\n[ ]+Read more\n[ ]+`), "")
+  }
   return html
     .replaceAll('href="https://superbowl.substack.com/feed#', 'href="#')
     .replaceAll('href="https://superbowl.substack.com/p/', 'href="/p/')
