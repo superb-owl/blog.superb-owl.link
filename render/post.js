@@ -72,6 +72,7 @@ function fixContent(post) {
   return html
     .replaceAll('href="https://superbowl.substack.com/feed#', 'href="#')
     .replaceAll('href="https://superbowl.substack.com/p/', 'href="/p/')
+    .replaceAll(/href="\/p\/([0-9a-f-]+)"/g, 'href="https://superbowl.substack.com/p/$1"') // move back hidden links
     .replace(/<br><br><img src="[^>]*" \/>/, '')
 }
 
