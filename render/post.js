@@ -45,7 +45,7 @@ export function renderPost(post) {
     </a>
   `);
   $('a[href="https://superbowl.substack.com/subscribe"]').replaceWith(`
-  <iframe src="https://superbowl.substack.com/embed" width="480" height="60" frameborder="0" scrolling="no"></iframe>
+  <iframe class="subscribe-embed" src="https://superbowl.substack.com/embed" height="80" width="480" frameborder="0" scrolling="no"></iframe>
   `);
   $("h1").each(function() {
     $(this).attr('id', $(this).text().replaceAll(/\W+/g, '-').toLowerCase())

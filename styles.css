@@ -119,9 +119,11 @@ h4 { font-size: 1em; }
   font-size: 14px;
 }
 
-iframe {
+iframe.subscribe-embed {
   border: none;
   max-width: 100%;
+  width: 480px;
+  height: 80px;
 }
 
 h3 a {
