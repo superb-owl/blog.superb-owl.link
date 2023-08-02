@@ -124,6 +124,7 @@ iframe.subscribe-embed {
   max-width: 100%;
   width: 480px;
   height: 80px;
+  margin-bottom: -30px;
 }
 
 h3 a {
