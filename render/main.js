@@ -13,7 +13,7 @@ const POST_DIR = DIST_DIR + '/p';
   fs.mkdirSync(dir);
 });
 
-const STATIC_FILES = ['styles.css', 'favicon.ico', 'logo.png'];
+const STATIC_FILES = ['styles.css', 'favicon.ico', 'logo.png', 'main.js'];
 STATIC_FILES.forEach(f => {
   fs.copyFileSync(f, DIST_DIR + '/' + f);
 });

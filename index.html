@@ -10,17 +10,20 @@
     <script>
       fetch("https://dgftewzs2q3y4ufp7uozfqty6a0artie.lambda-url.us-east-1.on.aws/");
     </script>
+    <script src="/main.js"></script>
   </head>
   <body>
     <div id="bodycontent">
       <div id="heading">
-        <a class="floating-logo" href="/">
-          <img src="/logo.png"></img>
-        </a>
+        <div class="floating-logo">
+          <a href="/"><img src="/logo.png"></img></a>
+          <a id="color-mode" onclick="toggleColorMode()"></a>
+        </div>
         <h1><a href="/">Superb Owl</a></h1>
-        <p class="tagline">Exploring the gaps between science and spirituality</p>
         <div class="subheading small linkbar">
           <a target="_blank" href="https://superbowl.substack.com/about">About</a>
+          |
+          <a target="_blank" href="https://superbowl.substack.com/feed">RSS</a>
           |
           <a target="_blank" href="https://superbowl.substack.com/">Substack</a>
           |
@@ -33,5 +36,6 @@
       <div id="posts"></div>
       <div id="post"></div>
     </div>
+    <script src="/main.js"></script>
   </body>
 </html>
