@@ -69,10 +69,12 @@ function fixContent(post) {
   if (post.paidOnly) {
     html = html.replace(new RegExp(`\n[ ]+Read more\n[ ]+`), "")
   }
-  return html
+  html = html
     .replaceAll('href="https://superbowl.substack.com/feed#', 'href="#')
     .replaceAll('href="https://superbowl.substack.com/p/', 'href="/p/')
     .replaceAll(/href="\/p\/([0-9a-f-]+)"/g, 'href="https://superbowl.substack.com/p/$1"') // move back hidden links
+    .replaceAll(/href="\/p\/([^"]*[?][^"]*)"/g, 'href="https://superbowl.substack.com/p/$1"') // move back links with query params, specifically share links
     .replace(/<br><br><img src="[^>]*" \/>/, '')
+  return html
 }
 
