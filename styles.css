@@ -79,6 +79,9 @@ body {
   font-size: var(--small-font-size);
   cursor: pointer;
 }
+.floating-logo #color-mode:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 1100px) {
   .floating-logo {
