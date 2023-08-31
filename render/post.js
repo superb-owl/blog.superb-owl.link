@@ -2,6 +2,13 @@ import * as fs from 'fs';
 import * as cheerio from 'cheerio';
 const index = fs.readFileSync('./index.html').toString();
 
+function sanitizeTag(str) {
+  return str
+    .replaceAll('"', '&quot;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('<', '&lt;');
+}
+
 export function renderPost(post) {
   const $ = cheerio.load(index);
   $('body').addClass('post-view');
@@ -19,11 +26,11 @@ export function renderPost(post) {
 
         <link rel="canonical" href="https://blog.superb-owl.link/p/${post.id}" />
         <meta property="og:url" content="https://blog.superb-owl.link/p/${post.id}" />
-        <meta property="og:title" content="${post.title}">
-        <meta name="twitter:title" content="${post.title}">
-        <meta name="description" content="${post.description}">
-        <meta property="og:description" content="${post.description}">
-        <meta name="twitter:description" content="${post.description}">
+        <meta property="og:title" content="${sanitizeTag(post.title)}">
+        <meta name="twitter:title" content="${sanitizeTag(post.title)}">
+        <meta name="description" content="${sanitizeTag(post.description)}">
+        <meta property="og:description" content="${sanitizeTag(post.description)}">
+        <meta name="twitter:description" content="${sanitizeTag(post.description)}">
         <meta property="og:image" content="${post.image}">
         <meta name="twitter:image" content="${post.image}">
         <meta name="twitter:card" content="summary_large_image">
