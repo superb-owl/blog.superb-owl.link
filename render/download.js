@@ -30,6 +30,7 @@ export async function fillDetails(post) {
     return false
   }
   const html = await resp.text();
+  post.original_html = html;
   const $ = cheerio.load(html);
 
   const imageMeta = $('meta[property="og:image"]');

@@ -303,6 +303,14 @@ figure {
   color: var(--secondary-text-color);
 }
 
+.latex-rendered {
+  border: 1px solid var(--break-color);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 80%;
+  border-radius: 4px;
+}
+
 video,
 img {
   max-width: 100%;

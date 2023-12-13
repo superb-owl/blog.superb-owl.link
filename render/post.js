@@ -63,6 +63,14 @@ export function renderPost(post) {
   $("h3").each(function() {
     $(this).attr('id', $(this).text().replaceAll(/\W+/g, '-').toLowerCase())
   });
+  $(".latex-rendered").each(function() {
+    $(this).html(`
+      <span>
+      Sorry, LaTeX rendering is not yet supported on this blog.
+      <a href="${post.story_permalink}">View the post on Substack</a> to see this equation.
+      </span>
+    `);
+  });
   $('a[href^="https://superbowl.substack.com/i/"]').each(function() {
     let href = $(this).attr('href');
     href = href.replace(/https:\/\/superbowl\.substack\.com\/i\/\w+\/([\w-]+)/, '#$1')
