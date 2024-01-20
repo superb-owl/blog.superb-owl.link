@@ -303,6 +303,8 @@ figure {
   color: var(--secondary-text-color);
 }
 
+/* unsupported functionality */
+.image-gallery-embed,
 .latex-rendered {
   border: 1px solid var(--break-color);
   padding: 10px;

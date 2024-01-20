@@ -51,9 +51,6 @@ export function renderPost(post) {
       ${commentsMsg}
     </a>
   `);
-  $('a[href="https://superbowl.substack.com/subscribe"]').replaceWith(`
-  <iframe class="subscribe-embed" src="https://superbowl.substack.com/embed" frameborder="0" scrolling="no"></iframe>
-  `);
   $("h1").each(function() {
     $(this).attr('id', $(this).text().replaceAll(/\W+/g, '-').toLowerCase())
   });
@@ -68,6 +65,14 @@ export function renderPost(post) {
       <span>
       Sorry, LaTeX rendering is not yet supported on this blog.
       <a href="${post.story_permalink}">View the post on Substack</a> to see this equation.
+      </span>
+    `);
+  });
+  $(".image-gallery-embed").each(function() {
+    $(this).html(`
+      <span>
+      Sorry, image galleries are not yet supported on this blog.
+      <a href="${post.story_permalink}">View the post on Substack</a> to see this gallery.
       </span>
     `);
   });
