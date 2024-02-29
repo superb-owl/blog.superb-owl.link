@@ -4,7 +4,7 @@ import * as home from './home.js';
 import * as post from './post.js';
 import * as download from './download.js';
 
-const DIST_DIR = './dist';
+const DIST_DIR = './docs';
 const POST_DIR = DIST_DIR + '/p';
 [DIST_DIR, POST_DIR].forEach(dir => {
   try {
