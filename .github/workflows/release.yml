@@ -1,4 +1,5 @@
 name: Deploy static content to Pages
+# DISABLED: substack blocks scraping from GitHub servers :/
 
 on:
   push:
