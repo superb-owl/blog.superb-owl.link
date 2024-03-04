@@ -34,7 +34,7 @@ export async function fillDetails(post) {
   const $ = cheerio.load(html);
 
   const imageMeta = $('meta[property="og:image"]');
-  post.image = imageMeta.attr('content')
+  post.image = (imageMeta.attr('content') || '')
     .replace('f_jpg', 'f_auto')
     .replace(/h_\d+,/, '')
     .replace(/w_\d+,/, 'w_600,');
