@@ -9,7 +9,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "node render/main.js; git checkout -- docs/CNAME",
-    "serve:dev": "http-server -c-1 -p 3000 -e html ./dist"
+    "serve:dev": "http-server -c-1 -p 3003 -a 0.0.0.0 -e html ./docs"
   },
   "author": "",
   "license": "ISC",
